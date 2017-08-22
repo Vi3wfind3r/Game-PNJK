@@ -44,14 +44,19 @@ class GameState extends Phaser.State {
       this.player.animations.add('left', [0, 1, 2, 3], 10, true);
       this.player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-      // this.cursors = this.game.input.keyboard.createCursorKeys();
+			//Toggle between the below cursors if you want up to be jump
+			//or spacebar to be jump....no other changes anywhere else is necessary
 
-			this.cursors = this.game.input.keyboard.addKeys({
-				'up': Phaser.Keyboard.SPACEBAR,
-				'down': Phaser.Keyboard.DOWN,
-				'left': Phaser.Keyboard.LEFT,
-				'right': Phaser.Keyboard.RIGHT
-			});
+			//////////IF YOU WANT UP TO BE JUMP, UNCOMMENT THE BELOW////////////
+      this.cursors = this.game.input.keyboard.createCursorKeys();
+
+			//////////IF YOU WANT SPACEBAR TO BE JUMP, UNCOMMENT THE BELOW////////////
+			// this.cursors = this.game.input.keyboard.addKeys({
+			// 	'up': Phaser.Keyboard.SPACEBAR,
+			// 	'down': Phaser.Keyboard.DOWN,
+			// 	'left': Phaser.Keyboard.LEFT,
+			// 	'right': Phaser.Keyboard.RIGHT
+			// });
 
 			this.stars = this.game.add.group();
 			this.stars.enableBody = true;
@@ -78,8 +83,10 @@ class GameState extends Phaser.State {
       } else if(this.cursors.right.isDown) {
         this.player.body.velocity.x = 150;
         this.player.animations.play('right');
-      }
-      else {
+      } else if(this.cursors.down.isDown) {
+				this.player.body.velocity.y = 350;
+				this.player.animations.play('down');
+			} else {
         this.player.animations.stop();
         this.player.frame = 4; //fourth frame in spritesheet is standing still
       }
