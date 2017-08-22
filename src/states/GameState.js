@@ -101,6 +101,8 @@ class GameState extends Phaser.State {
 				star.kill();
 			}
 
+			//this is a change for Nick
+
     }
 }
 
