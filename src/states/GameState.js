@@ -1,10 +1,10 @@
 
-
 class GameState extends Phaser.State {
 	init() {
 			let platforms;
 			let player;
 			let cursors;
+			let stars;
 	}
 
 	create() {
@@ -46,12 +46,22 @@ class GameState extends Phaser.State {
 
       this.cursors = this.game.input.keyboard.createCursorKeys();
 
-    }
+			this.stars = this.game.add.group();
+			this.stars.enableBody = true;
 
+			for(let i = 0; i < 15; i++) {
+				let star = this.stars.create(i * 50, 0, 'star');
+				star.body.gravity.y = 500;
+				star.body.bounce.y= 0.5 + Math.random() * 0.2;
+			}
+
+    }
 
     update() {
 
       let hitPlatforms = this.game.physics.arcade.collide(this.player, this.platforms);
+			this.game.physics.arcade.collide(this.stars, this.platforms);
+			this.game.physics.arcade.overlap(this.player, this.stars, collectStar, null, this);
 
       this.player.body.velocity.x = 0;
       //can make movement more complex
@@ -72,6 +82,11 @@ class GameState extends Phaser.State {
       if(this.cursors.up.isDown && this.player.body.touching.down && hitPlatforms) {
         this.player.body.velocity.y = -350; //the height of the jump
       }
+
+			function collectStar(player, star) {
+				star.kill();
+			}
+
     }
 }
 
