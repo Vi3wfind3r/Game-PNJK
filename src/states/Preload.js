@@ -3,6 +3,8 @@ import GameState from './GameState';
 class Preload extends Phaser.State {
   init() {
     this.stage.backgroundColor = '#b0d9fc';
+    //prevent users to pause the game by clicking away
+    this.stage.disableVisibilityChange = true;
   }
 
   preload() {
@@ -13,7 +15,7 @@ class Preload extends Phaser.State {
     }
 
   create() {
-    this.state.start('GameState');
+      this.state.start('MainMenu');
   }
 }
 
