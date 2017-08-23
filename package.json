@@ -4,9 +4,7 @@
   "description": "Tiny flexible template for writing Phaser games in ES6/ES2015 with Babel.",
   "main": "src/index.js",
   "scripts": {
-    "build": "gulp",
     "start": "node game.js",
-    "production": "gulp --production",
     "postinstall": "gulp default"
   },
   "repository": {
