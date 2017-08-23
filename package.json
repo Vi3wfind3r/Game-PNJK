@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "assemble": "^0.24.3",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
