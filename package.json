@@ -55,6 +55,7 @@
     "gulp-util": "^3.0.8",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
+    "node-uuid": "^1.4.8",
     "phaser": "^2.4.7",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^4.8.1"
