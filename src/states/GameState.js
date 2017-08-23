@@ -5,9 +5,12 @@ class GameState extends Phaser.State {
 			let player;
 			let cursors;
 			let stars;
+			let score;
+			let scoreText;
 	}
 
 	create() {
+      this.score = 0;
 			this.game.physics.startSystem(Phaser.Physics.ARCADE);
       let sky = this.game.add.sprite(0, 0, 'sky');
 
@@ -67,10 +70,13 @@ class GameState extends Phaser.State {
 				star.body.bounce.y= 0.5 + Math.random() * 0.2;
 			}
 
+			this.scoreText = this.game.add.text(16, 16, 'Score: 0',
+				{fontSize: '32px', fill: '#ffffff'});
+
     }
 
     update() {
-
+      
       let hitPlatforms = this.game.physics.arcade.collide(this.player, this.platforms);
 			this.game.physics.arcade.collide(this.stars, this.platforms);
 			this.game.physics.arcade.overlap(this.player, this.stars, collectStar, null, this);
@@ -97,11 +103,15 @@ class GameState extends Phaser.State {
         this.player.body.velocity.y = -350; //the height of the jump
       }
 
+			console.log('should be 0', this.score);
 			function collectStar(player, star) {
 				star.kill();
+				this.score += 10;
+				console.log('should be 10', this.score);
+				this.scoreText.text = 'Score: ' + this.score;
 			}
 
-			//this is a change for Nick
+			
 
     }
 }
