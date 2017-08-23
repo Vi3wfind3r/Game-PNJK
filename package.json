@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node game.js",
     "build": "gulp",
-    "production": "gulp --production",
-    "postinstall": "gulp default"
+    "production": "gulp --production"
   },
   "repository": {
     "type": "git",
