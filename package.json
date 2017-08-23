@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node game.js",
-    "postinstall": "gulp default"
+    "build": "gulp",
+    "production": "gulp --production"
   },
   "repository": {
     "type": "git",
