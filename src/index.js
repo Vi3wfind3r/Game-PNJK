@@ -3,6 +3,7 @@ import Preload from 'states/Preload';
 import MainMenu from 'states/MainMenu';
 import InfoModal from 'states/InfoModal';
 import HighScores from 'states/HighScores';
+import GameOver from 'states/GameOver';
 
 class Game extends Phaser.Game {
 
@@ -14,6 +15,7 @@ class Game extends Phaser.Game {
     this.state.add('MainMenu', MainMenu, false);
     this.state.add('InfoModal', InfoModal, false);
     this.state.add('HighScores', HighScores, false);
+    this.state.add('GameOver', GameOver, false);
 
 		this.state.start('Preload');
 	}

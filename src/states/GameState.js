@@ -1,10 +1,13 @@
+import {createText} from '../helper';
 
 class GameState extends Phaser.State {
 	init() {
 			let platforms;
 			let player;
 			let cursors;
-			let stars;
+      let stars;
+      let timer;
+      let timerTxt;
 	}
 
 	create() {
@@ -66,7 +69,15 @@ class GameState extends Phaser.State {
 				star.body.gravity.y = 500;
 				star.body.bounce.y= 0.5 + Math.random() * 0.2;
 			}
-
+      
+      this.timer = this.game.time.create();
+      this.timer.add(30000,
+      ()=>{
+          this.state.start('GameOver');
+      }, this);
+      this.timer.start();
+      this.timerTxt = createText(this, `Timer: ${this.timer.duration}s`, 600, 50, '30px Arial', '#000', 'center');
+      console.log(this);
     }
 
     update() {
@@ -100,8 +111,12 @@ class GameState extends Phaser.State {
 			function collectStar(player, star) {
 				star.kill();
 			}
-
+      this.timerTxt.setText(`Timer: ${this.timer.duration}s`);
     }
+    
+    // render(){
+    //     let txt = createText(this, `Timer: ${this.timer.duration}s`, 600, 50, '30px Arial', '#000', 'center');
+    // }
 }
 
 export default GameState;
