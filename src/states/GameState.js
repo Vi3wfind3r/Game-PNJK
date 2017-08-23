@@ -121,7 +121,7 @@ class GameState extends Phaser.State {
 				this.scoreText.text = 'Score: ' + this.score;
 			}
       this.timerTxt.setText(`Timer: ${this.timer.duration}s`);
-    }
+    } 
 }
 
 export default GameState;
