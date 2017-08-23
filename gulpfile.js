@@ -1,3 +1,5 @@
+'use strict';
+
 var del = require('del');
 var gulp = require('gulp');
 var path = require('path');
@@ -11,6 +13,22 @@ var exorcist = require('exorcist');
 var babelify = require('babelify');
 var browserify = require('browserify');
 var browserSync = require('browser-sync');
+var gulpAutoPrefixer = require('gulp-autoprefixer');
+var gulpConcat = require('gulp-concat');
+var gulpConnect = require('gulp-connect');
+var gulpExtname = require('gulp-extname');
+var gulpLoadPlugins = require('gulp-load-plugins');
+var gulpMinifyHTML = require('gulp-minify-html');
+var gulpRev = require('gulp-rev');
+var gulpSass = require('gulp-sass');
+var gulpTemplate = require('gulp-template');
+var gulpUsemin = require('gulp-usemin');
+var assemble = require('assemble');
+var lodash = require('lodash');
+var marked = require('marked');
+var gulpClean = require('gulp-clean');
+
+
 
 /**
  * Using different folders/file names? Change these constants:
@@ -24,6 +42,14 @@ var ENTRY_FILE = SOURCE_PATH + '/index.js';
 var OUTPUT_FILE = 'game.js';
 
 var keepFiles = false;
+
+gulp.task('serveprod', function() {
+  connect.server({
+    root: [SOURCE_PATH],
+    port: process.env.PORT || 3000, // localhost:3000
+    livereload: false
+  });
+});
 
 /**
  * Simple way to check for development/production mode.
