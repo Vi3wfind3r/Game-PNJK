@@ -43,12 +43,12 @@ var OUTPUT_FILE = 'game.js';
 
 var keepFiles = false;
 
-gulp.task('serveprod', function() {
-  connect.server({
-    port: process.env.PORT || 3000, // localhost:3000
-    livereload: false
-  });
-});
+// gulp.task('serveprod', function() {
+//   connect.server({
+//     port: process.env.PORT || 3000, // localhost:3000
+//     livereload: false
+//   });
+// });
 
 /**
  * Simple way to check for development/production mode.
