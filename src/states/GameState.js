@@ -10,12 +10,15 @@ class GameState extends Phaser.State {
 	}
 
 	create() {
+      //had to set score default here and not in init
       this.score = 0;
+      
 			this.game.physics.startSystem(Phaser.Physics.ARCADE);
       let sky = this.game.add.sprite(0, 0, 'sky');
 
       //platforms includes ground and ledges
       this.platforms = this.game.add.group();
+
       //enable physics in this group
       this.platforms.enableBody = true;
 
@@ -103,11 +106,9 @@ class GameState extends Phaser.State {
         this.player.body.velocity.y = -350; //the height of the jump
       }
 
-			console.log('should be 0', this.score);
 			function collectStar(player, star) {
 				star.kill();
 				this.score += 10;
-				console.log('should be 10', this.score);
 				this.scoreText.text = 'Score: ' + this.score;
 			}
 
