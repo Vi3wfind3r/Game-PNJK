@@ -195,4 +195,6 @@ gulp.task('fastBuild', build);
  * Read more about task dependencies in Gulp: 
  * https://medium.com/@dave_lunny/task-dependencies-in-gulp-b885c1ab48f0
  */
-gulp.task('default', ['serve']);
+
+//changed default to build from serve
+gulp.task('default', ['build']);
