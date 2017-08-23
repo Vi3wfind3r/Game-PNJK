@@ -53,8 +53,10 @@ var keepFiles = false;
 /**
  * Simple way to check for development/production mode.
  */
+
+//return was argv.production
 function isProduction() {
-    return argv.production;
+    return process.env.NODE_ENV;
 }
 
 /**
