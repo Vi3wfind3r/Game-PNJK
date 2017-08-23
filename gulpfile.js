@@ -45,7 +45,7 @@ var keepFiles = false;
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: ['Desktop/Thinkful/phaser-game/Game-PNJK'],
+    root: [SOURCE_PATH],
     port: process.env.PORT || 3000, // localhost:3000
     livereload: false
   });
