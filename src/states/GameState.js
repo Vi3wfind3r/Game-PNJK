@@ -77,7 +77,6 @@ class GameState extends Phaser.State {
       }, this);
       this.timer.start();
       this.timerTxt = createText(this, `Timer: ${this.timer.duration}s`, 600, 50, '30px Arial', '#000', 'center');
-      console.log(this);
     }
 
     update() {
@@ -113,10 +112,6 @@ class GameState extends Phaser.State {
 			}
       this.timerTxt.setText(`Timer: ${this.timer.duration}s`);
     }
-    
-    // render(){
-    //     let txt = createText(this, `Timer: ${this.timer.duration}s`, 600, 50, '30px Arial', '#000', 'center');
-    // }
 }
 
 export default GameState;
