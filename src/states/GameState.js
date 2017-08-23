@@ -5,15 +5,11 @@ class GameState extends Phaser.State {
 			let platforms;
 			let player;
 			let cursors;
-<<<<<<< HEAD
       let stars;
+      let score;
+			let scoreText;
       let timer;
       let timerTxt;
-=======
-			let stars;
-			let score;
-			let scoreText;
->>>>>>> dcfa169c00e2f58ba3825f5d631787c7f4a2c4c4
 	}
 
 	create() {
@@ -76,7 +72,6 @@ class GameState extends Phaser.State {
 				star.body.gravity.y = 500;
 				star.body.bounce.y= 0.5 + Math.random() * 0.2;
 			}
-<<<<<<< HEAD
       
       this.timer = this.game.time.create();
       this.timer.add(30000,
@@ -85,12 +80,8 @@ class GameState extends Phaser.State {
       }, this);
       this.timer.start();
       this.timerTxt = createText(this, `Timer: ${this.timer.duration}s`, 600, 50, '30px Arial', '#000', 'center');
-=======
-
-			this.scoreText = this.game.add.text(16, 16, 'Score: 0',
-				{fontSize: '32px', fill: '#ffffff'});
-
->>>>>>> dcfa169c00e2f58ba3825f5d631787c7f4a2c4c4
+      this.scoreText = this.game.add.text(16, 16, 'Score: 0',
+      {fontSize: '32px', fill: '#ffffff'});
     }
 
     update() {
@@ -128,13 +119,7 @@ class GameState extends Phaser.State {
 				console.log('should be 10', this.score);
 				this.scoreText.text = 'Score: ' + this.score;
 			}
-<<<<<<< HEAD
       this.timerTxt.setText(`Timer: ${this.timer.duration}s`);
-=======
-
-			
-
->>>>>>> dcfa169c00e2f58ba3825f5d631787c7f4a2c4c4
     }
 }
 
