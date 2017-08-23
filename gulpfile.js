@@ -45,7 +45,6 @@ var keepFiles = false;
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: [BUILD_PATH],
     port: process.env.PORT || 3000, // localhost:3000
     livereload: false
   });
